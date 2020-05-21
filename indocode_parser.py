@@ -22,7 +22,7 @@ class BasicLexer(Lexer):
 
     @_(r'\d+')
     def NUMBER(self, t):
-        t.value = int(t.value)
+        t.value = float(t.value)
         return t
 
     @_(r'#.*')
