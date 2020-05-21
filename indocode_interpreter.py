@@ -22,7 +22,7 @@ class BasicLexer(Lexer):
 
     @_(r'\d+')
     def NUMBER(self, t):
-        t.value = int(t.value)
+        t.value = float(t.value)
         return t
 
     @_(r'#.*')
@@ -120,7 +120,7 @@ class BasicExecute:
     def __init__(self, tree, env):
         self.env = env
         result = self.walkTree(tree)
-        if result is not None and isinstance(result, int):
+        if result is not None and isinstance(result, float):
             print(result)
         if isinstance(result, str) and result[0] == '"':
             print(result)
